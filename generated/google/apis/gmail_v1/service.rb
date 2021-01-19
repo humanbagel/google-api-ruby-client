@@ -815,19 +815,6 @@ module Google
           execute_or_queue_command(command, &block)
         end
 
-        # def batch(options = nil)
-        #   batch_command = BatchCommand.new(:post, Addressable::URI.parse(root_url + batch_path + "gmail/v1/users"))
-        #   batch_command.options = request_options.merge(options)
-        #   apply_command_defaults(batch_command)
-        #   begin
-        #     Thread.current[:google_api_batch] = batch_command
-        #     yield self
-        #   ensure
-        #     Thread.current[:google_api_batch] = nil
-        #   end
-        #   batch_command.execute(client)
-        # end
-
         # Immediately and permanently deletes the specified message. This operation
         # cannot be undone. Prefer messages.trash instead.
         # @param [String] user_id
