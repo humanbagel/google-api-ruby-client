@@ -49,9 +49,10 @@ module Google
         attr_accessor :user_ip
 
         def initialize
-          super('https://www.googleapis.com/', 'gmail/v1/users/')
+          super('https://gmail.googleapis.com/', '')
+          @batch_path = 'batch'
         end
-        
+
         # Gets the current user's Gmail profile.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -87,7 +88,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Stop receiving push notifications for the given user mailbox.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -121,7 +122,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Set up or update a push notification watch on the given user mailbox.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -160,7 +161,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Creates a new draft with the DRAFT label.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -209,7 +210,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Immediately and permanently deletes the specified draft. Does not simply trash
         # it.
         # @param [String] user_id
@@ -247,7 +248,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets the specified draft.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -289,7 +290,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Lists the drafts in the user's mailbox.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -339,7 +340,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Sends the specified, existing draft to the recipients in the To, Cc, and Bcc
         # headers.
         # @param [String] user_id
@@ -389,7 +390,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Replaces a draft's content.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -441,7 +442,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Lists the history of all changes to the given mailbox. History results are
         # returned in chronological order (increasing historyId).
         # @param [String] user_id
@@ -502,7 +503,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Creates a new label.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -541,7 +542,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Immediately and permanently deletes the specified label and removes it from
         # any messages and threads that it is applied to.
         # @param [String] user_id
@@ -579,7 +580,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets the specified label.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -618,7 +619,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Lists all labels in the user's mailbox.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -654,7 +655,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Updates the specified label. This method supports patch semantics.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -696,7 +697,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Updates the specified label.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -738,7 +739,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Deletes many messages by message ID. Provides no guarantees that messages were
         # not already deleted or even existed at all.
         # @param [String] user_id
@@ -776,7 +777,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Modifies the labels on the specified messages.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -813,7 +814,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Immediately and permanently deletes the specified message. This operation
         # cannot be undone. Prefer messages.trash instead.
         # @param [String] user_id
@@ -851,7 +852,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets the specified message.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -896,7 +897,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Imports a message into only this user's mailbox, with standard email delivery
         # scanning and classification similar to receiving via SMTP. Does not send a
         # message.
@@ -962,7 +963,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Directly inserts a message into only this user's mailbox similar to IMAP
         # APPEND, bypassing most scanning and classification. Does not send a message.
         # @param [String] user_id
@@ -1019,7 +1020,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Lists the messages in the user's mailbox.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -1073,7 +1074,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Modifies the labels on the specified message.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -1115,7 +1116,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Sends the specified message to the recipients in the To, Cc, and Bcc headers.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -1164,7 +1165,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Moves the specified message to the trash.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -1203,7 +1204,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Removes the specified message from the trash.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -1242,7 +1243,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets the specified message attachment.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -1284,7 +1285,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets the auto-forwarding setting for the specified account.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1320,7 +1321,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets IMAP settings.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1356,7 +1357,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets POP settings.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1392,7 +1393,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets vacation responder settings.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1428,7 +1429,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Updates the auto-forwarding setting for the specified account. A verified
         # forwarding address must be specified when auto-forwarding is enabled.
         # This method is only available to service account clients that have been
@@ -1470,7 +1471,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Updates IMAP settings.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1509,7 +1510,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Updates POP settings.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1548,7 +1549,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Updates vacation responder settings.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1587,7 +1588,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Creates a filter.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1626,7 +1627,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Deletes a filter.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1663,7 +1664,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets a filter.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1702,7 +1703,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Lists the message filters of a Gmail user.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1738,7 +1739,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Creates a forwarding address. If ownership verification is required, a message
         # will be sent to the recipient and the resource's verification status will be
         # set to pending; otherwise, the resource will be created with verification
@@ -1782,7 +1783,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Deletes the specified forwarding address and revokes any verification that may
         # have been required.
         # This method is only available to service account clients that have been
@@ -1822,7 +1823,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets the specified forwarding address.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1861,7 +1862,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Lists the forwarding addresses for the specified account.
         # @param [String] user_id
         #   User's email address. The special value "me" can be used to indicate the
@@ -1897,7 +1898,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Creates a custom "from" send-as alias. If an SMTP MSA is specified, Gmail will
         # attempt to connect to the SMTP service to validate the configuration before
         # creating the alias. If ownership verification is required for the alias, a
@@ -1944,7 +1945,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Deletes the specified send-as alias. Revokes any verification that may have
         # been required for using it.
         # This method is only available to service account clients that have been
@@ -1984,7 +1985,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets the specified send-as alias. Fails with an HTTP 404 error if the
         # specified address is not a member of the collection.
         # @param [String] user_id
@@ -2024,7 +2025,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Lists the send-as aliases for the specified account. The result includes the
         # primary send-as address associated with the account as well as any custom "
         # from" aliases.
@@ -2062,7 +2063,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Updates a send-as alias. If a signature is provided, Gmail will sanitize the
         # HTML before saving it with the alias.
         # Addresses other than the primary address for the account can only be updated
@@ -2108,7 +2109,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Updates a send-as alias. If a signature is provided, Gmail will sanitize the
         # HTML before saving it with the alias.
         # Addresses other than the primary address for the account can only be updated
@@ -2153,7 +2154,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Sends a verification email to the specified send-as alias address. The
         # verification status must be pending.
         # This method is only available to service account clients that have been
@@ -2193,7 +2194,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Deletes the specified S/MIME config for the specified send-as alias.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -2234,7 +2235,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets the specified S/MIME config for the specified send-as alias.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -2277,7 +2278,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Insert (upload) the given S/MIME config for the specified send-as alias. Note
         # that pkcs12 format is required for the key.
         # @param [String] user_id
@@ -2321,7 +2322,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Lists S/MIME configs for the specified send-as alias.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -2361,7 +2362,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Sets the default S/MIME config for the specified send-as alias.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -2402,7 +2403,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Immediately and permanently deletes the specified thread. This operation
         # cannot be undone. Prefer threads.trash instead.
         # @param [String] user_id
@@ -2440,7 +2441,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Gets the specified thread.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -2485,7 +2486,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Lists the threads in the user's mailbox.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -2539,7 +2540,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Modifies the labels applied to the thread. This applies to all messages in the
         # thread.
         # @param [String] user_id
@@ -2582,7 +2583,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Moves the specified thread to the trash.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
@@ -2621,7 +2622,7 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
-        
+
         # Removes the specified thread from the trash.
         # @param [String] user_id
         #   The user's email address. The special value me can be used to indicate the
