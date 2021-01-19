@@ -50,7 +50,7 @@ module Google
 
         def initialize
           super('https://www.googleapis.com/', 'gmail/v1/users/')
-          @batch_path = 'batch'
+          @batch_path = 'batch/gmail/v1'
         end
 
         # Gets the current user's Gmail profile.
@@ -816,7 +816,7 @@ module Google
         end
 
         # def batch(options = nil)
-        #   batch_command = BatchCommand.new(:post, Addressable::URI.parse(root_url + batch_path + "gmail/v1"))
+        #   batch_command = BatchCommand.new(:post, Addressable::URI.parse(root_url + batch_path + "gmail/v1/users"))
         #   batch_command.options = request_options.merge(options)
         #   apply_command_defaults(batch_command)
         #   begin
