@@ -49,7 +49,7 @@ module Google
         attr_accessor :user_ip
 
         def initialize
-          super('https://gmail.googleapis.com/', '')
+          super('https://www.googleapis.com/', 'gmail/v1/users/')
           @batch_path = 'batch'
         end
 
@@ -814,6 +814,19 @@ module Google
           command.query['userIp'] = user_ip unless user_ip.nil?
           execute_or_queue_command(command, &block)
         end
+
+        # def batch(options = nil)
+        #   batch_command = BatchCommand.new(:post, Addressable::URI.parse(root_url + batch_path + "gmail/v1"))
+        #   batch_command.options = request_options.merge(options)
+        #   apply_command_defaults(batch_command)
+        #   begin
+        #     Thread.current[:google_api_batch] = batch_command
+        #     yield self
+        #   ensure
+        #     Thread.current[:google_api_batch] = nil
+        #   end
+        #   batch_command.execute(client)
+        # end
 
         # Immediately and permanently deletes the specified message. This operation
         # cannot be undone. Prefer messages.trash instead.
